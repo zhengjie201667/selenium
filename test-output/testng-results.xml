@@ -2,16 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5635" started-at="2019-06-07T13:56:18Z" finished-at="2019-06-07T13:56:24Z">
+  <suite name="Default suite" duration-ms="11926" started-at="2019-06-08T12:13:51Z" finished-at="2019-06-08T12:14:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5635" started-at="2019-06-07T13:56:18Z" finished-at="2019-06-07T13:56:24Z">
-      <class name="com.hsbc.scf.selenium.NewTest">
-        <test-method status="PASS" signature="f()[pri:0, instance:com.hsbc.scf.selenium.NewTest@3ffc5af1]" name="f" duration-ms="5582" started-at="2019-06-07T13:56:18Z" finished-at="2019-06-07T13:56:24Z">
+    <test name="Default test" duration-ms="11926" started-at="2019-06-08T12:13:51Z" finished-at="2019-06-08T12:14:03Z">
+      <class name="docmanage.AddDocumentTest">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:docmanage.AddDocumentTest@42d80b78]" name="beforeClass" is-config="true" duration-ms="7268" started-at="2019-06-08T12:13:51Z" finished-at="2019-06-08T12:13:58Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- f -->
-      </class> <!-- com.hsbc.scf.selenium.NewTest -->
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="addDocument()[pri:0, instance:docmanage.AddDocumentTest@42d80b78]" name="addDocument" duration-ms="4612" started-at="2019-06-08T12:13:58Z" finished-at="2019-06-08T12:14:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addDocument -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:docmanage.AddDocumentTest@42d80b78]" name="afterClass" is-config="true" duration-ms="1" started-at="2019-06-08T12:14:03Z" finished-at="2019-06-08T12:14:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- docmanage.AddDocumentTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

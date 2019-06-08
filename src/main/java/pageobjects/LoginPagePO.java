@@ -11,12 +11,12 @@ public class LoginPagePO {
       By username = By.id("username");
       By password = By.id("password");
       By submitBtn = By.xpath("//button[@type='submit']");
-	
+	   
       public LoginPagePO(WebDriver driver) {
 		super();
 		this.driver = driver;
 	  }
-      
+    //*[@id="invite-modal"]/div/div/div[1]/div[2]/ul/li[3]/a
       public WebElement uerName(){
     	  return driver.findElement(username);
       }
