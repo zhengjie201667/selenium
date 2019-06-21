@@ -1,6 +1,5 @@
 package base;
 
-import static org.hamcrest.CoreMatchers.startsWith;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
