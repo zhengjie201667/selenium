@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="11423" started-at="2019-06-15T02:19:27Z" finished-at="2019-06-15T02:19:38Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="11423" started-at="2019-06-15T02:19:27Z" finished-at="2019-06-15T02:19:38Z">
+      <class name="docmanage.AddDocumentTest">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:docmanage.AddDocumentTest@5315b42e]" name="beforeClass" is-config="true" duration-ms="5137" started-at="2019-06-15T02:19:33Z" finished-at="2019-06-15T02:19:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="addDocument()[pri:0, instance:docmanage.AddDocumentTest@5315b42e]" name="addDocument" duration-ms="0" started-at="2019-06-15T02:19:38Z" finished-at="2019-06-15T02:19:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addDocument -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:docmanage.AddDocumentTest@5315b42e]" name="afterClass" is-config="true" duration-ms="0" started-at="2019-06-15T02:19:38Z" finished-at="2019-06-15T02:19:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- docmanage.AddDocumentTest -->
+      <class name="com.hsbc.scf.selenium.NewTest">
+        <test-method status="PASS" signature="f()[pri:0, instance:com.hsbc.scf.selenium.NewTest@62043840]" name="f" duration-ms="6254" started-at="2019-06-15T02:19:27Z" finished-at="2019-06-15T02:19:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+      </class> <!-- com.hsbc.scf.selenium.NewTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>

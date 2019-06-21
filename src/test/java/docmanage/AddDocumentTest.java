@@ -22,18 +22,18 @@ public class AddDocumentTest extends Base{
   @Test
   public void addDocument() throws Exception {
 	  //点击首页登陆按钮
-	  HomePagePO homePagePO = new HomePagePO(driver);
-	  homePagePO.loginBtn().click();
-	  LoginPageLib loginPageLib=new LoginPageLib(driver);
-	  loginPageLib.login();
-	  
-	  PortalPagePO portalPagePO = new PortalPagePO(driver);
-	  portalPagePO.invitePeopleClose();
-	  
-	  Actions action = new Actions(driver);
-	  action.moveToElement(portalPagePO.moreApplication()).perform();
-	  
-	  action.moveToElement(portalPagePO.KnowledgeDoc()).perform();
+//	  HomePagePO homePagePO = new HomePagePO(driver);
+//	  homePagePO.loginBtn().click();
+//	  LoginPageLib loginPageLib=new LoginPageLib(driver);
+//	  loginPageLib.login();
+//	  
+//	  PortalPagePO portalPagePO = new PortalPagePO(driver);
+//	  portalPagePO.invitePeopleClose();
+//	  
+//	  Actions action = new Actions(driver);
+//	  action.moveToElement(portalPagePO.moreApplication()).perform();
+//	  
+//	  action.moveToElement(portalPagePO.KnowledgeDoc()).perform();
   }
   
   @AfterClass

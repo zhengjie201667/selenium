@@ -17,13 +17,13 @@ public class LoginPageLib extends LoginPagePO{
 	}
      
 	public void login() throws Exception{
-	 FileInputStream file=new FileInputStream("C:\\Eclipse_workspace\\selenium\\Configs\\GlobalData.properties");
-   	 Properties prop = new Properties();
-   	 prop.load(file);
-   	 String username = prop.getProperty("username");
-   	 String password=prop.getProperty("password");
-	 uerName().sendKeys(username);
-	 password().sendKeys(password);
-	 submitBtn().click();
+//	 FileInputStream file=new FileInputStream("C:\\Eclipse_workspace\\selenium\\Configs\\GlobalData.properties");
+//   	 Properties prop = new Properties();
+//   	 prop.load(file);
+//   	 String username = prop.getProperty("username");
+//   	 String password=prop.getProperty("password");
+//	 uerName().sendKeys(username);
+//	 password().sendKeys(password);
+//	 submitBtn().click();
 	}
 }

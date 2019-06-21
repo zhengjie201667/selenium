@@ -33,7 +33,7 @@ public class Base {
     		 System.setProperty("webdriver.chrome.driver","D:\\BrowserDriver\\chromedriver.exe");
     		 driver = new ChromeDriver();	
     	 }
-    	 
+    	 System.out.println();
     	 driver.get(url);
     	 driver.manage().window().maximize();
     	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
