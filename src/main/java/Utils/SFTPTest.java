@@ -1,7 +1,10 @@
 package Utils;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.openqa.selenium.remote.NewSessionPayload;
 
 import com.jcraft.jsch.ChannelSftp;
 
@@ -22,7 +25,7 @@ public class SFTPTest {
 		          sftpDetails.put(SFTPConstants.SFTP_REQ_PASSWORD, "123456");
 		          sftpDetails.put(SFTPConstants.SFTP_REQ_PORT, "22");
 		         
-		          String src = "D:\\connectServer.txt"; // 本地文件名
+		          String src = "D:\\connectServer111.txt"; // 本地文件名
 		          String dst = "/root"; // 目标文件名
 		                
 		          SFTPChannel channel = test.getSFTPChannel();
@@ -46,10 +49,14 @@ public class SFTPTest {
 		           System.out.println("input stream read done.");
 		        }
 		         **/
-	             chSftp.put(src, dst, ChannelSftp.OVERWRITE); // 代码段2
+//	             chSftp.put(src, dst, ChannelSftp.OVERWRITE); // 代码段2
+	             InputStream isInputStream = chSftp.get(dst, 0);
 		        
 		         // chSftp.put(new FileInputStream(src), dst, ChannelSftp.OVERWRITE); // 代码段3
-		         
+	             byte[] b = new byte[1024];
+	             isInputStream.read(b);
+	             isInputStream.close();
+	             System.out.println(new String(b));
 		         chSftp.quit();
 		      
 		     }

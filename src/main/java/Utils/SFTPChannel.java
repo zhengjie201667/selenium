@@ -49,6 +49,7 @@ public class SFTPChannel {
 	
 	public static void main(String[] args) {
 		SFTPChannel sftpChannel = new SFTPChannel();
+		System.out.println("fdsaas");
 //		sftpChannel.getChannel(new Map<String, String>, 0)
 	}
 }
