@@ -77,7 +77,18 @@
     <artifactId>cucumber-junit</artifactId>
     <version>1.2.3</version>
 </dependency>
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>5.1.49</version>
+	</dependency>
 
+	<dependency>
+	  <groupId>com.codoid.products</groupId>
+	  <artifactId>fillo</artifactId>
+	  <version>1.21</version>
+	</dependency>
 
   </dependencies>
 
