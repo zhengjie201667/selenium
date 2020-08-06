@@ -1,4 +1,4 @@
-package Utils;
+package com.java.utils;
 
 public class SFTPConstants {
 	 public static final String SFTP_REQ_HOST = "host";

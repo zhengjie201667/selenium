@@ -1,4 +1,4 @@
-package Utils;
+package com.java.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -60,6 +60,7 @@ public class DbUtils {
 		ResultSet rSet = null;
 		Statement stmt = dbConnect(DbType.mysql);
 		Fillo fillo = new Fillo();
+	
 		
 		try {
 			rSet = stmt.executeQuery(sql);

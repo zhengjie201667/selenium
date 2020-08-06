@@ -1,4 +1,4 @@
-package Utils;
+package com.java.utils;
 
 import java.util.Map;
 import java.util.Properties;
