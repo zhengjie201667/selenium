@@ -1,4 +1,4 @@
-package com.java.stepDefinition;
+package com.java.stepDefinition.ui;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 

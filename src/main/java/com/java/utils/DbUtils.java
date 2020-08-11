@@ -59,39 +59,33 @@ public class DbUtils {
 		Map<String, String> rSetMap = new HashMap<String, String> ();
 		ResultSet rSet = null;
 		Statement stmt = dbConnect(DbType.mysql);
-		Fillo fillo = new Fillo();
-	
 		
 		try {
 			rSet = stmt.executeQuery(sql);
 			ResultSetMetaData rsmd = (ResultSetMetaData) rSet.getMetaData();
 			int columnsNumber = rsmd.getColumnCount();
+			for (int i = 1; i <= columnsNumber; i++) {
+				System.out.println(rsmd.getColumnName(i));
+			}
+			
 			while (rSet.next()) {
-				for (int i = 1; i <= columnsNumber; i++) {
-					String columnValue = rSet.getString(i);
-					System.out.print(rsmd.getColumnName(i) + " " + columnValue);
-				}
+				
 				System.out.println("");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		try {
-//			rSet = stmt.executeQuery(sql);
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//        try {
-//			while (rSet.next()) {
-//				String elementType = rSet.getString(2);
-//				String locator = rSet.getString(3);
-//				rSetMap.put(elementType, locator);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+		
 
 		return rSetMap;
+	}
+	
+	/**
+	 * @author Justin
+	 * 
+	 */
+	public void name() {
+		
 	}
 	
 	public static void main(String[] args) {
