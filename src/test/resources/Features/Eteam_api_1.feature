@@ -1,22 +1,11 @@
 @tag
-Feature: Title of your feature
-  I want to use this template for my feature file
+Feature: api test 1
+  I want to check the api
 
-  @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
-
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
+  Scenario Outline: Construct json file
+    Given I want to construct a json <name>
+    When I replace the <value> in sequence
+    Then I upload the file into server
 
     Examples: 
       | name  | value | status  |

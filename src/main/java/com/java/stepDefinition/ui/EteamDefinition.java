@@ -1,23 +1,20 @@
 package com.java.stepDefinition.ui;
 
-import static org.hamcrest.CoreMatchers.nullValue;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.sql.Driver;
 import java.util.Properties;
-import java.util.stream.Stream;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 
 public class EteamDefinition {
+	
+	
+	
 	public static WebDriver driver = null;
 
 	@Given("^open the Eteam homepage$")

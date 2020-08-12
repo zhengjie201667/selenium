@@ -1,19 +1,24 @@
 package com.java.utils;
 
-import static org.hamcrest.CoreMatchers.nullValue;
+import java.io.File;
+import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-
-import com.codoid.products.exception.FilloException;
 import com.codoid.products.fillo.Connection;
 import com.codoid.products.fillo.Fillo;
 import com.codoid.products.fillo.Recordset;
 
-public class FileUtils {
+import net.sf.json.JSONObject;
 
+
+public class FileUtil {
+	private static final Logger logger = LogManager.getLogger();
 	
 	public static void getExcelFile(String filePath) {
 		Fillo fillo = new Fillo();
@@ -26,19 +31,48 @@ public class FileUtils {
 			while (recordset.next()) {
 				System.out.println(recordset.getField("sit"));
 			}
-		} catch (FilloException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		recordset.close();
 		con.close();
 	}
 	
+	/**
+	 * @author Justin
+	 * transfer file to jsonObject
+	 */
+	public static JSONObject getJsonObject(File jsonFile) {
+		logger.info("get json object");
+		JSONObject jsonObject = null;
+		try {
+			String jString = FileUtils.readFileToString(jsonFile);
+			jsonObject = JSONObject.fromObject(jString);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return jsonObject;
+	}
+	
+	/**
+	 * @author Justin
+	 * transfer file to json string
+	 */
+	public static String getJsonObjectString(File jsonFile) {
+		String jString = null;
+		try {
+			jString = FileUtils.readFileToString(jsonFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return jString;
+	}
 	
 	/**
 	 * 
 	 * @param new excel
 	 */
-	public void name() {
+	public void getExcel() {
 		HSSFWorkbook wb = new HSSFWorkbook();
 		HSSFSheet sheet = wb.createSheet("");
 		HSSFRow firstRow = sheet.createRow(0);
