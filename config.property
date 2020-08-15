@@ -3,3 +3,8 @@ password = zh6782895
 
 dbUserName = root
 dbPassWord = root
+
+host = 192.168.211.128
+username = root
+password = 123456
+port = 22

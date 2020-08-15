@@ -1,7 +1,12 @@
 package com.java.utils;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -15,6 +20,7 @@ import com.codoid.products.fillo.Fillo;
 import com.codoid.products.fillo.Recordset;
 
 import net.sf.json.JSONObject;
+import net.sf.json.util.NewBeanInstanceStrategy;
 
 
 public class FileUtil {
@@ -84,8 +90,11 @@ public class FileUtil {
 		}
 	}
 	
+	
+	
 	public static void main(String[] args) {
-		String path = "E:\\\\java file\\\\env.xlsx";
-		getExcelFile(path);
+		String path = "D:\\connectServer111.txt";
+		File file = new File(path);
+//		readFile(file);
 	}
 }
