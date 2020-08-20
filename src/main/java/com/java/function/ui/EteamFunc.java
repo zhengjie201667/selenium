@@ -1,4 +1,4 @@
-package com.java.function;
+package com.java.function.ui;
 
 public class EteamFunc {
 	
