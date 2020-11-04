@@ -17,7 +17,7 @@ public class DbUtils {
 
 	public static Statement dbConnect(Enum dbType) {
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/selenium";
+		String url = "jdbc:mysql://localhost:3306/test";
 		Statement stmt = null;
 		try {
 			Class.forName(driver);
@@ -55,8 +55,9 @@ public class DbUtils {
 	 * download the webElement from DB
 	 * 
 	 */
-	public static Map<String, String> getResultSetMap (String sql) {
-		Map<String, String> rSetMap = new HashMap<String, String> ();
+	public static Map <String,Map<String, String>> getResultSetMap (String sql) {
+		Map <String,Map<String, String>> rSetMap = new HashMap<>();
+		Map<String, String> rMap = new HashMap<>();
 		ResultSet rSet = null;
 		Statement stmt = dbConnect(DbType.mysql);
 		
@@ -64,20 +65,28 @@ public class DbUtils {
 			rSet = stmt.executeQuery(sql);
 			ResultSetMetaData rsmd = (ResultSetMetaData) rSet.getMetaData();
 			int columnsNumber = rsmd.getColumnCount();
-			for (int i = 1; i <= columnsNumber; i++) {
-				System.out.println(rsmd.getColumnName(i));
+			
+			rSet.last();
+			for (int j = 1; j <= rSet.getRow(); j++)  {
+				rMap = new HashMap<>();
+				for (int i = 2; i <= columnsNumber; i++) {
+					System.out.print(rsmd.getColumnName(i)+" ");
+					System.out.print(rSet.getString(i));
+					rMap.put(rsmd.getColumnName(i), rSet.getString(i));
+				}
+				
+				rSetMap.put(String.valueOf(j), rMap);
+				
+				System.out.println(rSetMap);
+				
 			}
 			
-			while (rSet.next()) {
-				
-				System.out.println("");
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 
-		return rSetMap;
+		return null;
 	}
 	
 	/**
@@ -91,8 +100,8 @@ public class DbUtils {
 	public static void main(String[] args) {
 //		String pathString ="INSERT INTO Eteam_ui (elementType,locator) VALUES ('xpath','username')";
 //		executeSql(DbType.mysql, pathString);
-		String sqlString = "SELECT * FROM Eteam_ui";
-		Map<String, String> map = getResultSetMap(sqlString);
+		String sqlString = "SELECT * FROM eteam_ui";
+		Map <String,Map<String, String>> map = getResultSetMap(sqlString);
 		System.out.println(map);
 	}
 }

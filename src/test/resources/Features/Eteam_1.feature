@@ -3,9 +3,9 @@ Feature: Title of your feature
   Scenario: Title of your scenario
     Given open the Eteam homepage
     And login the page
-    #When I complete action
-    #And some other action
-    #And yet another action
+    And I close the pop up page
+    And hover above the more button
+    And click the knowledge btn
     #Then I validate the outcomes
     #And check more outcomes
 

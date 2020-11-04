@@ -1,0 +1,9 @@
+browser = chrome
+url = http://eteams.cn
+username = zhengjie6782895@163.com
+password = zh6782895
+
+host=192.168.129.129
+serverUsername=root
+serverPassword=123456
+port=22

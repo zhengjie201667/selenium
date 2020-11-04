@@ -1,26 +1,16 @@
 package com.java.utils;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import com.codoid.products.fillo.Connection;
 import com.codoid.products.fillo.Fillo;
 import com.codoid.products.fillo.Recordset;
+import com.jayway.jsonpath.JsonPath;
 
 import net.sf.json.JSONObject;
-import net.sf.json.util.NewBeanInstanceStrategy;
 
 
 public class FileUtil {
@@ -79,22 +69,28 @@ public class FileUtil {
 	 * @param new excel
 	 */
 	public void getExcel() {
-		HSSFWorkbook wb = new HSSFWorkbook();
-		HSSFSheet sheet = wb.createSheet("");
-		HSSFRow firstRow = sheet.createRow(0);
-		HSSFCell firstCell = firstRow.createCell(0);
-		String [] excelCellName = {"objectname","cit","sit"};
-		for (int i = 0; i < 3; i++) {
-			
-			
-		}
+//		HSSFWorkbook wb = new HSSFWorkbook();
+//		HSSFSheet sheet = wb.createSheet("");
+//		HSSFRow firstRow = sheet.createRow(0);
+//		HSSFCell firstCell = firstRow.createCell(0);
+//		String [] excelCellName = {"objectname","cit","sit"};
+//		for (int i = 0; i < 3; i++) {
+//			
+//		}
+
 	}
 	
 	
 	
 	public static void main(String[] args) {
-		String path = "D:\\connectServer111.txt";
+		String path = "src//test//resources//Jsons//api_1.json";
 		File file = new File(path);
+		try {
+			String json = JsonPath.read(file, "$.teacher[2]");
+			System.out.println(json);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 //		readFile(file);
 	}
 }

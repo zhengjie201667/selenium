@@ -1,10 +1,12 @@
 package com.java.function.api;
 
-import net.sf.json.JSONObject;
+import io.restassured.RestAssured;
 
 public class apiFunc {
+
 	
-	public void uploadFileToServer(JSONObject jsonObject) {
+	public void getResponse(String url) {
+		RestAssured.given().contentType("j");
 		
 	}
 }

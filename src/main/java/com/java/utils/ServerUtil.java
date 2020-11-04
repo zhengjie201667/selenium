@@ -1,15 +1,10 @@
 package com.java.utils;
 
-import static org.hamcrest.CoreMatchers.nullValue;
-
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.jcraft.jsch.Channel;
@@ -23,10 +18,9 @@ public class ServerUtil {
 	public static Session session = null;
 	public static Channel channel = null;
 
-     
-     public static ChannelSftp getServerconnect(String host,String username,String password,int port) {
+	public static ChannelSftp getServerconnect(String host, String username, String password, int port) {
 		JSch jSch = new JSch();
-		
+
 		try {
 			session = jSch.getSession(username, host, port);
 			session.setPassword(password);
@@ -43,27 +37,36 @@ public class ServerUtil {
 			logger.info("server connect fail");
 		}
 		return (ChannelSftp) channel;
-	 }
-     
-     public static void closeConnect() {
+	}
+
+	public static void closeConnect() {
 		channel.disconnect();
 		session.disconnect();
-	 }
-     
-     public void uploadFile() {
-		
 	}
-     
-     public static void main(String[] args) {
+
+	public void uploadFile() {
+
+	}
+
+	public static void main(String[] args) {
 		Properties properties = new Properties();
 		InputStream inStream;
+//		File file = new File("Configs\\log4j2.xml");
+//		try {
+//			inStream = new FileInputStream(file);
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		}
 		try {
-			inStream = new FileInputStream("config.property");
+			inStream = new FileInputStream(new File("Configs\\config.property"));
 			properties.load(inStream);
-			ChannelSftp channelSftp = getServerconnect(properties.getProperty("host"), properties.getProperty("username"), properties.getProperty("password"), Integer.valueOf(properties.getProperty("port")));
-//			InputStream inputStream = new 
-//			channelSftp.put(inputStream, "/root/test-copy.txt");
-//			closeConnect();
+			ChannelSftp channelSftp = getServerconnect(properties.getProperty("host"),
+					properties.getProperty("serverUsername"), properties.getProperty("serverPassword"),
+					Integer.valueOf(properties.getProperty("port")));
+			File file = new File("D:/test2.txt");
+			InputStream inputStream = new FileInputStream(file);
+			channelSftp.put(inputStream, "/root/test2.txt");
+			closeConnect();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
