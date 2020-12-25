@@ -7,29 +7,57 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class Test {
-	public static void readFile(File file) {
-		InputStream iStream = null;
-		byte b[] = new byte[1024];
-		int temp = 0;
-		int len = 0;
-		int by=0;
-		try {
-			iStream = new FileInputStream(file);
-			OutputStream oStream = new FileOutputStream("D:\\test.txt");
-			while ((by = iStream.read())!=-1) {
-				
-				oStream.write(by);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
-		
-		System.out.println(new String(b));
+import inteface.Ant;
+import inteface.Flyanimal;
+import net.bytebuddy.asm.Advice.This;
+
+public class Test extends DbUtils{
+	// 静态属性
+	private static String staticField = getStaticField();
+	// 静态代码块ࣘ
+	static {
+	System.out.println(staticField);
+	System.out.println("静态方法");
+	}
+	// 普通属性
+	private String field = getField();
+	// 普通方法快
+	{
+	System.out.println(field);
+	}
+	// 构造法方法
+	public Test() {
+	super();
+	System.out.println("构造函数初始化");
+	}
+	public static String getStaticField() {
+	String statiFiled = "Static Field Initial";
+	return statiFiled;
+	}
+	public static String getField() {
+	String filed = "Field Initial";
+	
+	return filed;
+	
 	}
 	
-	public static void main(String[] args) {
-		File file = new File("D:\\connectServer111.txt");
-		readFile(file);
+	// 主方法
+	
+	
+	public static int add(int... numbers){
+		int sum = 0;
+		for(int num : numbers){
+		sum += num;
+		}
+		return sum;
+		}
+	
+	public static void main(String[] argc) {
+
+		Flyanimal flyanimal = new Ant();
+		flyanimal.fly();
+	
+	
 	}
+
 }

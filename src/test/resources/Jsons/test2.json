@@ -1,0 +1,25 @@
+{
+  "paramz": {
+    "feeds": [
+      {
+        "id": "${id}",
+        "oid": "${oid}",
+        "category": "${category}",
+        "data": {
+          "subject": "${subject}",
+          "summary": "${summary}",
+          "cover": "${cover}",
+          "pic": "${pic}",
+          "format":  "${format}",
+          "changed": "${changed}"
+        }
+      }
+    ],
+    "PageIndex": "${PageIndex}",
+    "PageSize":  "${PageSize}",
+    "TotalCount":  "${TotalCount}",
+    "TotalPage":  "${TotalPage}"
+  },
+  "ar":"${ar}",
+  "br":"${br}"
+}

@@ -15,6 +15,13 @@ import com.mysql.jdbc.ResultSetMetaData;
 public class DbUtils {
 	public static Connection con = null;
 
+	
+	
+	public DbUtils() {
+		System.out.println("Super");
+		// TODO Auto-generated constructor stub
+	}
+
 	public static Statement dbConnect(Enum dbType) {
 		String driver = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/test";

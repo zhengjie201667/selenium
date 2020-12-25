@@ -1,5 +1,7 @@
 package com.java.utils;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,11 +14,13 @@ import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
+import com.jcraft.jsch.SftpException;
 
 public class ServerUtil {
 	private static final Logger logger = LogManager.getLogger();
 	public static Session session = null;
 	public static Channel channel = null;
+	public static ChannelSftp channelSftp = null;
 
 	public static ChannelSftp getServerconnect(String host, String username, String password, int port) {
 		JSch jSch = new JSch();
@@ -37,6 +41,16 @@ public class ServerUtil {
 			logger.info("server connect fail");
 		}
 		return (ChannelSftp) channel;
+	}
+	
+	public static void uploadFileToServer(ChannelSftp channelSftp) {
+		String src = "D://test.txt";
+		String dst = "//root//test2.txt";
+		try {
+			channelSftp.put(src, dst, ChannelSftp.OVERWRITE);
+		} catch (SftpException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void closeConnect() {
@@ -63,12 +77,15 @@ public class ServerUtil {
 			ChannelSftp channelSftp = getServerconnect(properties.getProperty("host"),
 					properties.getProperty("serverUsername"), properties.getProperty("serverPassword"),
 					Integer.valueOf(properties.getProperty("port")));
-			File file = new File("D:/test2.txt");
-			InputStream inputStream = new FileInputStream(file);
-			channelSftp.put(inputStream, "/root/test2.txt");
-			closeConnect();
+//			File file = new File("D:/test2.txt");
+//			InputStream inputStream = new FileInputStream(file);
+//			channelSftp.put(inputStream, "/root/test2.txt");
+//			closeConnect();
+			uploadFileToServer(channelSftp);
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			closeConnect();
 		}
 	}
 }
