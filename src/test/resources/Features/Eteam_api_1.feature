@@ -1,13 +1,15 @@
-@tag
 Feature: api test 1
   I want to check the api
 
-  Scenario Outline: Construct json file
-    Given I want to construct a json <name>
-    #When I replace the <value> in sequence
-    #Then I upload the file into server
+  Scenario Outline: mutiple examples
+
+    Given Construct json file with <id> <oid> <format> <PageIndex> 
+    |id|oid|format|PageIndex|
+    |<id>| <oid>|<format>|<PageIndex> |
+    When I put the json into the server
+    Then I check the data
 
     Examples: 
-      | name  | value | status  |
-      | mark |     5 | success |
-      | name2 |     7 | Fail    |
+|id| oid | format | PageIndex | server  | value | status  |
+|1|fujian | 456   | 12        | mark |     5 | success |
+#|2|fuan | 654 | 21       | name2 |     7 | Fail    |  

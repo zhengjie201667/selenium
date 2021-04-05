@@ -14,7 +14,14 @@ public class JsonUtil {
 
 	private static Map<String, Object> jsonKeyValueMap = new HashMap<String, Object>();
 	
-	
+	/**
+	 * 构造json
+	 * @param jsonPath
+	 * @param parameterJsonName
+	 * @param defaultValueJsonName
+	 * @param parameters
+	 * @return
+	 */
 	public static JSONObject jsonConstructor(String jsonPath,String parameterJsonName,String defaultValueJsonName,Map<String, String>parameters) {
 		//keyVariableJson 代表带值得json, keyValueJson代表参数化的json
 		JSONObject keyVariableJson = getJsonData(jsonPath,parameterJsonName);

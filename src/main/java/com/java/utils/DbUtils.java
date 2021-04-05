@@ -24,16 +24,16 @@ public class DbUtils {
 
 	public static Statement dbConnect(Enum dbType) {
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/test";
+		String url = "jdbc:mysql://localhost:3306/ssm";
 		Statement stmt = null;
 		try {
 			Class.forName(driver);
-			con = DriverManager.getConnection(url, "root", "123456");
+			con = DriverManager.getConnection(url, "root", "root");
 			stmt = con.createStatement();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		System.out.println("connect");
 		return stmt;
 	}
 	
@@ -48,7 +48,7 @@ public class DbUtils {
 	
 	public static ResultSet getResultSet (String sql) {
 		ResultSet rSet = null;
-		Statement stmt = dbConnect(DbType.mysql);
+		Statement stmt = dbConnect(DbType.MYSQL);
 		try {
 			rSet = stmt.executeQuery(sql);
 		} catch (SQLException e) {
@@ -66,7 +66,7 @@ public class DbUtils {
 		Map <String,Map<String, String>> rSetMap = new HashMap<>();
 		Map<String, String> rMap = new HashMap<>();
 		ResultSet rSet = null;
-		Statement stmt = dbConnect(DbType.mysql);
+		Statement stmt = dbConnect(DbType.MYSQL);
 		
 		try {
 			rSet = stmt.executeQuery(sql);
@@ -107,8 +107,9 @@ public class DbUtils {
 	public static void main(String[] args) {
 //		String pathString ="INSERT INTO Eteam_ui (elementType,locator) VALUES ('xpath','username')";
 //		executeSql(DbType.mysql, pathString);
-		String sqlString = "SELECT * FROM eteam_ui";
-		Map <String,Map<String, String>> map = getResultSetMap(sqlString);
-		System.out.println(map);
+		String sqlString = "SELECT * FROM users";
+		Statement statement = dbConnect(DbType.MYSQL);
+		
+		
 	}
 }

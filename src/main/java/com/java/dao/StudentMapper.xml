@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.dao.StudentMapper">
+
+
+
+	<resultMap type="com.java.utils.Student" id="resultmap">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="age" column="age"/>
+	</resultMap>
+	
+	
+	<select id="listStudents" resultType="Student"  >
+		select * from student
+	</select>
+	
+	
+	<select id="listStudentResult" resultMap="resultmap"  >
+		select * from student
+	</select>
+	
+	
+	
+</mapper> 
