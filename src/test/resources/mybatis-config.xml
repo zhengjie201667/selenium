@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="jdbc.properties"/>
+	<settings>
+		<setting name="logImpl" value="LOG4J"/>
+	</settings>
+	
+	<typeAliases>
+		<package name="com.java.utils"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+		<environment id="product">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName.Pro}" />
+				<property name="url" value="${jdbc.url.Pro}" />
+				<property name="username" value="${jdbc.username.Pro}" />
+				<property name="password" value="${jdbc.password.Pro}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+	<!--	<mapper resource="com/java/dao/UserMapper.xml" /> 
+	 	<mapper class="com.java.dao.UserMapper"/> 
+		<mapper class="com.java.dao.StudentMapper"/> 	-->
+		
+		<package name="com.java.dao"/>
+	</mappers>
+
+
+</configuration>

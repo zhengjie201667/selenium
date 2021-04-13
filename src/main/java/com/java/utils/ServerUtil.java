@@ -30,12 +30,13 @@ public class ServerUtil {
 			session.setPassword(password);
 			Properties properties = new Properties();
 			properties.put("StrictHostKeyChecking", "no");
+			properties.put("userauth.gssapi-with-mic", "no");
 			session.setConfig(properties);
 			session.connect();
-			logger.info("session connect succsfully");
+			System.out.println("session connect succsfully");
 			channel = session.openChannel("sftp");
 			channel.connect();
-			logger.info("chanel connect succsfully");
+			System.out.println("chanel connect succsfully");
 		} catch (JSchException e) {
 			e.printStackTrace();
 			logger.info("server connect fail");
@@ -43,49 +44,25 @@ public class ServerUtil {
 		return (ChannelSftp) channel;
 	}
 	
-	public static void uploadFileToServer(ChannelSftp channelSftp) {
-		String src = "D://test.txt";
-		String dst = "//root//test2.txt";
-		try {
+	public static void uploadFileToServer(String src, String dst,ChannelSftp channelSftp) throws Exception {
 			channelSftp.put(src, dst, ChannelSftp.OVERWRITE);
-		} catch (SftpException e) {
-			e.printStackTrace();
-		}
+
 	}
+
+	
+	public static void uploadFileToServer(ChannelSftp channelSftp,InputStream inputStream, String dst) throws SftpException {
+		channelSftp.put(inputStream, dst, ChannelSftp.OVERWRITE);
+}
 
 	public static void closeConnect() {
 		channel.disconnect();
 		session.disconnect();
 	}
 
-	public void uploadFile() {
-
-	}
 
 	public static void main(String[] args) {
-		Properties properties = new Properties();
-		InputStream inStream;
-//		File file = new File("Configs\\log4j2.xml");
-//		try {
-//			inStream = new FileInputStream(file);
-//		} catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		}
-		try {
-			inStream = new FileInputStream(new File("Configs\\config.property"));
-			properties.load(inStream);
-			ChannelSftp channelSftp = getServerconnect(properties.getProperty("host"),
-					properties.getProperty("serverUsername"), properties.getProperty("serverPassword"),
-					Integer.valueOf(properties.getProperty("port")));
-//			File file = new File("D:/test2.txt");
-//			InputStream inputStream = new FileInputStream(file);
-//			channelSftp.put(inputStream, "/root/test2.txt");
-//			closeConnect();
-			uploadFileToServer(channelSftp);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			closeConnect();
-		}
+
+		getServerconnect("119.29.12.21", "root", "Zh123456", 22);
+		
 	}
 }
