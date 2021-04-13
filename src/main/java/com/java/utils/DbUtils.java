@@ -41,6 +41,7 @@ public class DbUtils {
 		Statement stmt = dbConnect(dbType);
 		try {
 			stmt.execute(sql);
+			System.out.println("");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
