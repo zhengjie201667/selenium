@@ -42,6 +42,7 @@ public class DbUtils {
 		try {
 			stmt.execute(sql);
 			System.out.println("");
+			System.out.println("");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
